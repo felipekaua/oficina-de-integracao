@@ -1,0 +1,64 @@
+.pageContainer{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.menuContainer{
+    overflow-y: auto;
+    width: 65%;
+    margin: 0 5% 0 5%;
+    h1{
+        font-family: 'Ephesis', cursive;
+        margin-bottom: 7%;
+        margin-top: 2%;
+        font-weight: 400;
+    }
+    .subtitle{
+        display: flex;
+        align-items: center;
+        margin-bottom: 2%;
+        svg{
+            margin-left: 1%;
+            height: 2%;
+            width: 2%;
+        }
+    }
+    .menuSheet{
+        max-width: 100%;
+        .horizontalListing{
+            background-color: var(--light-yellow);
+            display: flex;
+            justify-content: space-between;
+        }
+        h2{
+            border: 0.2px solid darkgray;
+            background-color: var(--light-yellow);
+            text-align: center;
+        }
+        h3{
+            border: 0.2px solid darkgray;
+            background-color: var(--light-yellow);
+            width: 100%;
+            text-align: center;
+        }
+        .contentContainer{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            textarea{
+                width: 100%;
+                resize: none;
+            }
+        }
+    }
+    button{
+        margin-top: 1%;
+        cursor: pointer;
+        float: right;
+        border-radius: 5px;
+        border: 1px solid var(--green);
+        background-color: var(--green);
+        color: var(--white);
+    }
+}

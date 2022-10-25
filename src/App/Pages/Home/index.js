@@ -6,10 +6,12 @@ import container from "../../../assets/login/container.png";
 const Home = () => {
 
     const navigate = useNavigate();
-    const [loginShop, setLoginShop] = useState(false);
 
     function navigateToLoginClient(){
       navigate("/loginClient");
+    }
+    function navigateToLoginShop(){
+      navigate("/menu");
     }
 
     return(
@@ -19,19 +21,8 @@ const Home = () => {
         <div className="login">
           <img src={container} alt="container" />
           <div>
-            {loginShop ?
-              <>
-                <button>ADMIN</button>
-                <button>FUNCIONÁRIO</button>
-              </>
-              :
-              <>
-                <button onClick={navigateToLoginClient}>CLIENTE</button>
-                <button onClick={()=>{setLoginShop(true)}}>ESTABELECIMENTO</button>
-                
-              </>
-            }
-            
+            <button onClick={navigateToLoginClient}>CLIENTE</button>
+            <button onClick={navigateToLoginShop}>ESTABELECIMENTO</button>
           </div>
         </div>
       </>
