@@ -3,8 +3,9 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    
 }
-.menuContainer{
+.shopContainer{
     overflow-y: auto;
     width: 65%;
     margin: 0 5% 0 5%;
@@ -16,13 +17,166 @@
     }
     .subtitle{
         display: flex;
+        justify-content: space-around;
         align-items: center;
         margin-bottom: 2%;
+        margin-top: 2%;
         svg{
             margin-left: 1%;
             height: 2%;
             width: 2%;
         }
     }
+    .shopSheet{
+        height: 62%;
+
+        .listing{
+            display: flex;
+            justify-content: space-between;
+            width: 99%;
+            height: 80%;
+            margin: auto;
+
+            .itemList{
+                display: flex;
+                flex-direction: column;
+                overflow-y: auto;
+                margin-right: 0.1%;
+                width: 100%;
+                height: 100%;
+                outline: solid 1px black;
+
+                .itemContainer{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    outline: solid 1px var(--grey);
+                    
+                    div{
+                        display: flex;
+                        align-items: center;
+                        
+                        h4{
+                            max-width: 200px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+                    }
+
+                    .over{
+                        flex-direction: column;
+                    }
+
+                    svg{
+                        margin-left: 10px;
+                        margin-right: 10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+    button{
+        margin-top: 1%;
+        cursor: pointer;
+        float: right;
+        border-radius: 5px;
+        border: 1px solid var(--green);
+        background-color: var(--green);
+        color: var(--white);
+    }
+}
+.fade{
+    background-color: rgba(0, 0, 0, 0.63) !important;
     
+    div{
+        outline: none !important;
+    }
+}
+.newItemModal, .editItemModal{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 10;
+    border-radius: 10px;
+    background-color: var(--white);
+    outline: solid 0.5px var(--grey);
+    height: 60%;
+    width: 40%;
+    right: 16%; 
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    overflow-y: auto;
+
+    .header{
+        width: 100%;
+        padding: 2%;
+        height: fit-content;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        svg{
+            cursor: pointer;
+            height: 100%;
+            width: 5%;
+        }
+    }
+    .body{
+        padding-left: 2%;
+        padding-right: 2%;
+
+        input,select{
+            width: 100%;
+        }
+        option{
+            width: 100%;
+        }
+    }
+    .footer{
+        display: flex;
+        justify-content: space-between;
+        bottom: 0;
+        padding-left: 2%;
+        padding-right: 2%;
+        padding-bottom: 2%;
+
+        div{
+            display: flex;
+            align-items: center;
+        }
+
+        button{
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            color: var(--white);
+            margin-right: 10px;
+        }
+        .red{
+            background-color: red;
+        }
+        .trashcan{
+            cursor: pointer;
+            border-radius: 5px;
+            height: 100%;
+            width: 100%;
+            color: var(--white);
+            padding: 5%;
+            background-color: red;
+            margin-right: 40px;
+
+            svg{
+                height: 100%;
+                width: 100%;
+            }
+            
+        }
+        .green{
+            background-color: green;
+        }
+    }
 }

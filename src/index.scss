@@ -10,6 +10,10 @@
   --grey: #D9D9D9;
   // 
 
+  h1,h2,h3,h4{
+    user-select: none;
+  }
+
   // fonts
   font-family: 'Open Sans';
   
@@ -17,22 +21,22 @@
   /* Firefox */
   * {
     scrollbar-width: auto;
-    scrollbar-color: #ababab #ffffff;
+    scrollbar-color: #ababab none;
   }
 
   /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
   }
 
   *::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: none;
   }
 
   *::-webkit-scrollbar-thumb {
     background-color: #ababab;
     border-radius: 10px;
-    border: 3px solid #ffffff;
+    border: none;
   } 
 }
 
