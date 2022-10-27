@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useEffect, useState }  from "react";
 import "./styles.scss";
 import Sidebar from "../../../Components/Sidebar";
-import { useEffect } from "react";
 import { BsFillPencilFill } from "react-icons/bs";
 import { db } from "../../../Firebase/firebase-config";
 import { collection, doc, updateDoc, getDocs, getDoc, setDoc } from "firebase/firestore";
-import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 
 const Menu = () => {

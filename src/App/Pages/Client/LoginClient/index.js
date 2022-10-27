@@ -1,11 +1,11 @@
 import React from "react";
 import "./styles.scss";
 
-const loginClient = () => {
+const Dashboard = () => {
     return(
       <>
       </>
     )
   }
   
-  export default loginClient;
+  export default Dashboard;
