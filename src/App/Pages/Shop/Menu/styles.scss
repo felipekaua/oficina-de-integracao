@@ -82,6 +82,17 @@
                 text-align: center;
             }
 
+            ::-webkit-scrollbar{
+                background-color: #FFFFFF;
+                width: 3px;   
+                
+            
+              }
+              ::-webkit-scrollbar-thumb {
+                background-color: #A5A5A5;
+                border-radius: 5px;
+            }
+
             textarea:focus {
                 outline: 0;
             }
@@ -105,3 +116,4 @@
         height: 46px;
     }
 }
+
