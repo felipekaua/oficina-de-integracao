@@ -32,7 +32,7 @@ const ShopReviews = () => {
       <>
       <div className="pageContainer">
           <Sidebar selected={"avaliações"}/>
-          <div className="menuContainer">
+          <div className="containerReview">
             <h1>Avaliações</h1>
             <h2 className="subtitle">Veja comentários e sugestões</h2>
             <div className="reviewsContainer">
