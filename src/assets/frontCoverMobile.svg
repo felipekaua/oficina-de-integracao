@@ -1,8 +1,8 @@
 <svg width="375" height="667" viewBox="0 0 375 667" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g clip-path="url(#clip0_115_1006)">
+<g clip-path="url(#clip0_115_1006)" filter="url(#filter0_b_115_1006)">
 <rect width="375" height="667" fill="url(#pattern0)"/>
 <rect y="667" width="667" height="375" transform="rotate(-90 0 667)" fill="#4C4843" fill-opacity="0.57"/>
-<g filter="url(#filter0_d_115_1006)">
+<g filter="url(#filter1_d_115_1006)">
 <path d="M30 174C30 165.716 36.7157 159 45 159H330C338.284 159 345 165.716 345 174V349.279H30V174Z" fill="white"/>
 <path d="M345 493C345 501.284 338.284 508 330 508H45C36.7157 508 30 501.284 30 493V404.971H345V493Z" fill="white"/>
 <path d="M30.0103 358.38V345.515H59.3182V411.31H30.0103V400.651C30.2576 397.955 32.2362 392.564 37.0591 389.623C41.808 386.728 42.6238 380.312 42.2528 377.126C42.0055 375.166 40.3237 370.51 35.5751 367.569C30.8265 364.629 29.8866 360.218 30.0103 358.38Z" fill="white"/>
@@ -14,10 +14,16 @@
 <path d="M30 174C30 165.716 36.7157 159 45 159H330C338.284 159 345 165.716 345 174V309.045C345 317.33 338.284 324.045 330 324.045H45C36.7157 324.045 30 317.33 30 309.045V174Z" fill="url(#pattern1)"/>
 </g>
 <defs>
+<filter id="filter0_b_115_1006" x="-61" y="-61" width="497" height="789" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feGaussianBlur in="BackgroundImageFix" stdDeviation="30.5"/>
+<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_115_1006"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_115_1006" result="shape"/>
+</filter>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0_115_1006" transform="translate(-1.18708) scale(0.00241012 0.00135501)"/>
 </pattern>
-<filter id="filter0_d_115_1006" x="17" y="146" width="341" height="375" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter1_d_115_1006" x="17" y="146" width="341" height="375" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 <feOffset/>
