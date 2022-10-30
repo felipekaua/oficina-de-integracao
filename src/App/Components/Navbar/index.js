@@ -33,12 +33,12 @@ const Navbar = ({selected}) => {
         </div>  
         <div className="body" id="body">
           <div>
-            <h2 onClick={()=>{navigate("/dashboard");}}>Início</h2>
+            <h2 onClick={()=>{navigate("/dashboard"); openNavbar();}}>Início</h2>
             <h2>Vale Refeição</h2>
             <h2>Lanchonete</h2>
             <h2>Retirada</h2>
             <h2>Histórico</h2>
-            <h2>Avaliações</h2>
+            <h2 onClick={()=>{navigate("/reviews"); openNavbar();}}>Avaliações</h2>
           </div>
           <div>
             <h2 onClick={()=>{navigate("/");}}>Sair</h2>

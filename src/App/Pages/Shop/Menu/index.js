@@ -3,7 +3,7 @@ import "./styles.scss";
 import Sidebar from "../../../Components/Sidebar";
 import { BsFillPencilFill } from "react-icons/bs";
 import { db } from "../../../Firebase/firebase-config";
-import { collection, doc, updateDoc, getDocs, getDoc, setDoc } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { ToastContainer, toast } from 'react-toastify';
 
 const Menu = () => {
@@ -33,7 +33,7 @@ const Menu = () => {
         b.forEach(day => {
           const short = ref+"-"+day;
           menu.map((item)=>{
-            if(item.id == short){
+            if(item.id === short){
               const textArea = document.getElementById(short);
               textArea.value = item.content;
             }
