@@ -1,7 +1,8 @@
 # Croissant
 
+<p align="center"><img src="src/assets/frontCover.svg" alt="cover" width="720px" height="366px"/> <img src="src/assets/frontCoverMobile.svg" alt="cover mobile" width="206px" height="366px"></p>
 
-<img src="src/assets/frontCover.svg" alt="cover">
+
 
 Este é um sistema proposto e desenvolvido na as aulas da disciplina de Oficina de Integração do curso de Engenharia de Computação da Universidade Tecnológica Federal do Paraná do câmpus de Cornélio Procópio/PR.
 
@@ -17,6 +18,8 @@ Como inspiração, foi utilizado as ideia disponíveis no [Dribbble](https://dri
 
 Dessa forma, o design pode ser acessado através do seguinte [link](https://www.figma.com/file/5ZpIuwBRaqEiPgn3JOYKxR/Projeto-de-Oficina-de-Integra%C3%A7%C3%A3o?node-id=42%3A165)
 
+> Nenhum das imagens utilizadas são autorais, todas foram retiradas do [Unsplash](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiQ-OnDmIj7AhW6BbkGHfATAiIQFnoECAkQAQ&url=https%3A%2F%2Funsplash.com%2F&usg=AOvVaw07uHYdeyZQMneg6p8JTUC3) ou do [Yandex](https://yandex.com/images/) . Já os ícones, foi tuilizado o plugin [Iconify](https://www.figma.com/community/plugin/735098390272716381/Iconify) próprio do Figma.
+
 <br/>
 
 ## ﹁ Desenvolvimento ﹂
@@ -29,6 +32,7 @@ O sistema web, dedicado ao funcionário do restaurante, apresenta 5 telas difere
 4. **Lanchonete:** mostra os items da lanchonete, podendo adicionar novos e/ou editar um já existente;
 5. **Avaliações:** seção dedicada para consultar as avaliações/sugestões dos usuários do restaurante.
 <br/>
+
 Já o mobile, dedicado ao cliente, apresenta 6 telas:
 
 1. **Login:** tela de login;
