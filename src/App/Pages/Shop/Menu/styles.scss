@@ -10,22 +10,23 @@
     margin: 0 5% 0 5%;
     h1{
         font-family: 'Ephesis', cursive;
-        margin-bottom: 8%;
+        margin-bottom: 7%;
         margin-top: 44px;
         font-weight: 400;
         font-size: 50px;
+        letter-spacing: 0.1em;
     }
     .subtitle{
         display: flex;
         align-items: center;
-        margin-bottom: 2%;
+        margin-bottom: 30px;
         font-size: 20px;
         div {
             background: url(../../../../assets/shop/edit.svg) no-repeat center/cover;
             margin-left: 1.5%;
             width: 30px;
             height: 30px;
-            filter: drop-shadow(0px 4px 13px rgba(0, 0, 0, 0.25));
+            filter: drop-shadow(0px 4px 13px rgba(0, 0, 0, 0.20));
         }
 
         /*svg{
@@ -99,7 +100,7 @@
         font-size: 18px;
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;
-        width: 209px;
+        width: 181px;
         height: 46px;
     }
 }

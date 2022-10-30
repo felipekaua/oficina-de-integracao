@@ -242,7 +242,7 @@ const Lanchonete = () => {
           <div className="shopContainer">
             <h1>Lanchonete</h1>
             <div className="editItems">
-              <h2>Edite o estoque da lanchonete </h2>
+              <h2>Adicione ou edite o estoque da lanchonete </h2>
               <button id="addItem" onClick={()=>{handleModal(true)}}></button>
             </div>
             
@@ -262,7 +262,7 @@ const Lanchonete = () => {
                       <>
                         <div className="itemContainer">
                           <div>
-                            <BsCup/>
+                            <div className="iconDrink"></div>
                             <div className="over">
                               <h4>{item.name}</h4>
                               <h5>R$ {item.price}</h5>
@@ -285,7 +285,7 @@ const Lanchonete = () => {
                       <>
                         <div className="itemContainer">
                           <div>
-                            <FaHamburger />
+                            <div className="iconFood"></div>
                             <div className="over">
                               <h4>{item.name}</h4>
                               <h5>R$ {item.price}</h5>
@@ -308,7 +308,7 @@ const Lanchonete = () => {
                       <>
                         <div className="itemContainer">
                           <div>
-                            <TbCandy/>
+                            <div className="iconCandy"></div>
                             <div className="over">
                               <h4>{item.name}</h4>
                               <h5>R$ {item.price}</h5>
@@ -330,26 +330,24 @@ const Lanchonete = () => {
         </div>
         <div className="newItemModal">
           <div className="header">
-            <h2>Adicionando Item</h2>
+            <h2>Novo item</h2>
             <div onClick={()=>{handleModal(false)}} className="close"></div>
            
           </div>
           <div className="body">
-            <h3>Nome</h3>
-            <input id="name" type="text" />
-            <h3>Preço</h3>
-            <input id="price" type="number" />
-            <h3>Quantidade</h3>
-            <input id="quantity" type="number" />
-            <h3>Tipo</h3>
-            <select name="" id="type">
+            
+            <input id="name" type="text" placeholder="Nome"/>
+            <input id="price" type="number" placeholder="Preço" />
+            <input id="quantity" type="number" placeholder="Quantidade" />
+           
+            <select id="type">
               <option value="bebida">Bebida</option>
               <option value="salgado">Salgado</option>
               <option value="doce">Doce</option>
             </select>
           </div>
           <div className="footer">
-            <button className="red" onClick={()=>{handleModal(false); resetModal();}}>Descartar</button>
+            <button className="red" onClick={()=>{handleModal(false); resetModal();}}>Cancelar</button>
             <button className="green" onClick={()=>{handleNewItem(); resetModal();}}>Salvar</button>
           </div>
         </div>
@@ -363,17 +361,14 @@ const Lanchonete = () => {
             
           </div>
           <div className="body">
-            <h3>Nome</h3>
-            <input id="nameEdit" type="text" />
-            <h3>Preço</h3>
-            <input id="priceEdit" type="number" />
-            <h3>Quantidade</h3>
-            <input id="quantityEdit" type="number" />
+            <input id="nameEdit" type="text" placeholder="Nome" />
+            <input id="priceEdit" type="number" placeholder="Preço"/>
+            <input id="quantityEdit" type="number" placeholder="Quantidade"/>
           </div>
           <div className="footer">
         
               
-              <button className="red" onClick={()=>{handleEditModal(false,[]); resetEditModal();}}>Descartar</button>
+              <button className="red" onClick={()=>{handleEditModal(false,[]); resetEditModal();}}>Cancelar</button>
     
             <button className="green" onClick={()=>{handleEditItem(); resetEditModal();}}>Salvar</button>
           </div>
