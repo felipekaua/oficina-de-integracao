@@ -1,6 +1,6 @@
 # Croissant <img src="src/assets/croissant.svg" alt="croissant" width="24px" height="24px">
 
-<p align="center"><img src="src/assets/frontCover.svg" alt="cover" width="720px" height="366px"/> <img src="src/assets/frontCoverMobile.svg" alt="cover mobile" width="206px" height="366px"></p>
+<p align="center"><img src="src/assets/frontCover.svg" alt="cover" height="183px"/> <img src="src/assets/frontCoverMobile.svg" alt="cover mobile" height="183px"></p>
 
 
 
