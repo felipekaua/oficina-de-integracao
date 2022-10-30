@@ -22,6 +22,7 @@ const Home = () => {
           <img src={container} alt="container" />
           <div>
             <button onClick={navigateToLoginShop}>LOGIN</button>
+            <button onClick={navigateToLoginClient}>MOBILE</button>
           </div>
         </div>
       </>
