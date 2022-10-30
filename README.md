@@ -1,6 +1,7 @@
 # Croissant
 
-<img src="src/assests/frontCover.svg" alt="cover">
+
+<img src="src/assets/frontCover.svg" alt="cover">
 
 Este é um sistema proposto e desenvolvido na as aulas da disciplina de Oficina de Integração do curso de Engenharia de Computação da Universidade Tecnológica Federal do Paraná do câmpus de Cornélio Procópio/PR.
 
@@ -16,6 +17,7 @@ Como inspiração, foi utilizado as ideia disponíveis no [Dribbble](https://dri
 
 Dessa forma, o design pode ser acessado através do seguinte [link](https://www.figma.com/file/5ZpIuwBRaqEiPgn3JOYKxR/Projeto-de-Oficina-de-Integra%C3%A7%C3%A3o?node-id=42%3A165)
 
+<br/>
 
 ## ﹁ Desenvolvimento ﹂
 
@@ -26,7 +28,7 @@ O sistema web, dedicado ao funcionário do restaurante, apresenta 5 telas difere
 3. **Vale refeição:** utilizado para consultar disponibildades dos vales;
 4. **Lanchonete:** mostra os items da lanchonete, podendo adicionar novos e/ou editar um já existente;
 5. **Avaliações:** seção dedicada para consultar as avaliações/sugestões dos usuários do restaurante.
-
+<br/>
 Já o mobile, dedicado ao cliente, apresenta 6 telas:
 
 1. **Login:** tela de login;
