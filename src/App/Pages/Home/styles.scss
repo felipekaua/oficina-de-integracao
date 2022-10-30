@@ -15,8 +15,7 @@
     filter: blur(3px);
 }
 .login{
-    width: fit-content;
-    height: 90%;
+    height: 100%;
     left: 0; 
     right: 0; 
     margin-left: auto; 
@@ -26,17 +25,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     
     img{
-        height: 100%;
+        height: 75%;
         position: relative;
     }
 
     div{
-        top: 38%;
-        bottom: 0;
-        margin-top: auto;
-        margin-bottom: auto;
+        top: 14%;
+        height: 100%;
         justify-content: center;
         display: flex;
         flex-direction: column;
@@ -44,7 +42,7 @@
     }
 
     button{
-        width: 370px;
+        width: 340px;
         height: 63px;
         margin-bottom: 40px;
         background-color: var(--orange);

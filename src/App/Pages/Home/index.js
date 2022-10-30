@@ -21,8 +21,7 @@ const Home = () => {
         <div className="login">
           <img src={container} alt="container" />
           <div>
-            <button onClick={navigateToLoginClient}>ADMIN</button>
-            <button onClick={navigateToLoginShop}>FUNCIONÁRIO</button>
+            <button onClick={navigateToLoginShop}>LOGIN</button>
           </div>
         </div>
       </>
