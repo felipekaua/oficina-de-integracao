@@ -43,7 +43,7 @@ const Dashboard = () => {
       <div className="pageContainerMobile">
         <Navbar/>
         <div className="generalContainerMobile">
-          <div>
+          <div className="title">
             <h1>Bem Vindo!</h1>
             <h2>Confira o cardápio da semana</h2>
           </div>

@@ -88,7 +88,7 @@ const Reviews = () => {
         theme="light"/>
       <div className="pageContainerMobile">
         <Navbar/>
-        <div className="generalContainerMobile">
+        <div className="generalContainerMobileReview">
           <h1>Avaliações</h1>
           <div className="reviewsContainer">
             {reviews.map((review)=>{
@@ -102,9 +102,9 @@ const Reviews = () => {
               )
             })}
           </div>
-          <div>
-            <input id="review"></input>
-            <button onClick={handleReview}><BsArrowRightCircle/></button>
+          <div className="submit">
+            <input id="review" placeholder="Deixe um comentário..."></input>
+            <button onClick={handleReview}> <div className="arrow"></div> </button>
           </div>
         </div>
       </div>

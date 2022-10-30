@@ -33,7 +33,7 @@
     }
 
     div{
-        top: 58%;
+        top: 50%;
         justify-content: center;
         display: flex;
         flex-direction: column;
@@ -53,3 +53,18 @@
         cursor: pointer;
     }
 }
+
+@media (max-width: 400px) {
+    .login {
+        
+        img {
+            height: 60%;
+        }
+
+        button {
+            width: 260px;
+            height: 50px;
+            font-size: 30px;
+        }
+    }
+  }
