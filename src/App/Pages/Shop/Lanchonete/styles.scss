@@ -9,18 +9,41 @@
     overflow-y: auto;
     width: 65%;
     margin: 0 5% 0 5%;
+    padding-left: 12px;
+    padding-right: 12px;
     h1{
         font-family: 'Ephesis', cursive;
         margin-bottom: 7%;
-        margin-top: 2%;
+        margin-top: 44px;
+        font-weight: 400;
+        font-size: 50px;
         font-weight: 400;
     }
+
+    h2 {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .editItems {
+        display: flex;
+        align-items: center;
+        
+
+    }
+
     .subtitle{
         display: flex;
         justify-content: space-around;
         align-items: center;
         margin-bottom: 2%;
         margin-top: 2%;
+        
+        h2 {
+            font-size: 18px;
+            font-weight: 400;
+        }
+
         svg{
             margin-left: 1%;
             height: 2%;
@@ -28,63 +51,104 @@
         }
     }
     .shopSheet{
-        height: 62%;
+        height: 60%;
+        margin-top: 30px;
 
         .listing{
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            width: 99%;
+            width: 100%;
             height: 80%;
-            margin: auto;
+           
 
             .itemList{
                 display: flex;
                 flex-direction: column;
                 overflow-y: auto;
-                margin-right: 0.1%;
                 width: 100%;
                 height: 100%;
-                outline: solid 1px black;
+                background: #FFFFFF;
+                box-shadow: 4px 4px 13px rgba(0, 0, 0, 0.25);
+                border-radius: 15px;
+                padding-top: 2px;
+                z-index: 0;
+
 
                 .itemContainer{
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
-                    outline: solid 1px var(--grey);
+                    border-bottom: 1px solid #A5A5A5;
+                    height: 55px;
+                    margin-left: 15px;
+                    margin-right: 15px;
                     
                     div{
                         display: flex;
                         align-items: center;
                         
                         h4{
-                            max-width: 200px;
                             white-space: nowrap;
                             overflow: hidden;
                             text-overflow: ellipsis;
+
+                            font-family: 'Open Sans', sans-serif;
+                            font-size: 15px;
+                            font-weight: 400;
+                        }
+
+                        .pencil {
+                            background: url(../../../../assets/shop/pencil.svg) no-repeat center/cover;
+                            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15));
+                            width: 15px;
+                            height: 15px;
+
+                            margin-left: 6px;
+                            cursor: pointer;
                         }
                     }
 
                     .over{
+                        display: flex;
+                        align-items: flex-start;
                         flex-direction: column;
+
+                        margin-left: 30px;
+
                     }
 
-                    svg{
-                        margin-left: 10px;
-                        margin-right: 10px;
-                        cursor: pointer;
+                    .over h4 {
+                        font-family: 'Open Sans', sans-serif;
+                        font-size: 15px;
+                        font-weight: 400;
                     }
+
+                    .over h5 {
+                        font-family: 'Open Sans', sans-serif;
+                        font-size: 11px;
+                        font-weight: 400;
+                        letter-spacing: 0.1em;
+                    }
+
+                    
                 }
+            }
+
+            #back1 {
+                margin-left: 15px;
+                margin-right: 15px;
             }
         }
     }
     button{
-        margin-top: 1%;
+        background: url(../../../../assets/shop/edit.svg) no-repeat center/cover;
+        margin-left: 1.5%;
+        width: 30px;
+        height: 30px;
+        filter: drop-shadow(0px 4px 13px rgba(0, 0, 0, 0.25));
+        border: none;
         cursor: pointer;
-        float: right;
-        border-radius: 5px;
-        border: 1px solid var(--green);
-        background-color: var(--green);
-        color: var(--white);
     }
 }
 .fade{
@@ -93,17 +157,19 @@
     div{
         outline: none !important;
     }
+
+    
 }
 .newItemModal, .editItemModal{
     position: absolute;
     display: none;
     flex-direction: column;
     justify-content: space-around;
-    z-index: 10;
+    z-index: 900;
     border-radius: 10px;
     background-color: var(--white);
     outline: solid 0.5px var(--grey);
-    height: 60%;
+    height: 75%;
     width: 40%;
     right: 16%; 
     top: 0;
@@ -113,70 +179,124 @@
 
     .header{
         width: 100%;
-        padding: 2%;
+        padding-left: 5%;
+        padding-right: 5%;
         height: fit-content;
         display: flex;
         justify-content: space-between;
         align-items: center;
+
         
-        svg{
+
+        
+
+        h2 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+
+            
+        }
+
+        .btHeader {
+            width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .close{
             cursor: pointer;
-            height: 100%;
-            width: 5%;
+            height: 30px;
+            width: 30px;
+            background: url(../../../../assets/shop/close.svg) no-repeat center/cover;
+        }
+
+        .trashcan{
+            cursor: pointer;
+            
+            height: 30px;
+            width: 30px;
+            color: var(--white);
+            background: url(../../../../assets/shop/delete.svg) no-repeat center/cover;
+            
         }
     }
     .body{
-        padding-left: 2%;
-        padding-right: 2%;
+        padding-left: 5%;
+        padding-right: 5%;
+
+        h3 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
 
         input,select{
             width: 100%;
+            margin-bottom: 12px;
+            background: #FFFFFF;
+            border: 1px solid #989898;
+            border-radius: 10px;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 0px 15px 0px 15px;
+
+            height: 56px;
+
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
         }
+
         option{
             width: 100%;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
         }
     }
     .footer{
         display: flex;
+        align-items: center;
         justify-content: space-between;
         bottom: 0;
-        padding-left: 2%;
-        padding-right: 2%;
-        padding-bottom: 2%;
-
-        div{
-            display: flex;
-            align-items: center;
-        }
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 100%;
+            
+        
 
         button{
             cursor: pointer;
             border-radius: 10px;
             border: none;
             color: var(--white);
-            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            width: 209px;
+            height: 46px;
         }
-        .red{
-            background-color: red;
-        }
-        .trashcan{
-            cursor: pointer;
-            border-radius: 5px;
-            height: 100%;
-            width: 100%;
-            color: var(--white);
-            padding: 5%;
-            background-color: red;
-            margin-right: 40px;
 
-            svg{
-                height: 100%;
-                width: 100%;
-            }
-            
+        .red{
+            border-radius: 37px;
+            border: none;
+            background: linear-gradient(88.61deg, #FA9A53 1.19%, #F2DBAE 97.46%);
         }
+
+        
         .green{
-            background-color: green;
+            border-radius: 37px;
+            border: none;
+            background: linear-gradient(88.61deg, #07AB6B 1.19%, #0BF197 97.46%);
         }
     }
 }

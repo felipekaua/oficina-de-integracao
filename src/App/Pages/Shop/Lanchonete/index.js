@@ -47,25 +47,43 @@ const Lanchonete = () => {
       const page = document.getElementsByClassName("pageContainer")[0];
       const modalC = document.getElementsByClassName("newItemModal")[0];
       const buttonC = document.getElementById("addItem");
+      const back0 = document.getElementById("back0");
+      const back1 = document.getElementById("back1");
+      const back2 = document.getElementById("back2");
+      
       if(turnOn){
         page.classList.add("fade");
         modalC.style.display = "flex";
         buttonC.style.display = "none";
+        back0.style.zIndex = -1;
+        back1.style.zIndex = -1;
+        back2.style.zIndex = -1;
+        
       }else{
         page.classList.remove("fade");
         modalC.style.display = "none";
         buttonC.style.display = "flex";
+        back0.style.zIndex = 0;
+        back1.style.zIndex = 0;
+        back2.style.zIndex = 0;
+        
       }
     }
     function handleEditModal(turnOn, item){
       const page = document.getElementsByClassName("pageContainer")[0];
       const modalC = document.getElementsByClassName("editItemModal")[0];
       const buttonC = document.getElementById("addItem");
+      const back0 = document.getElementById("back0");
+      const back1 = document.getElementById("back1");
+      const back2 = document.getElementById("back2");
 
       if(turnOn){
         page.classList.add("fade");
         modalC.style.display = "flex";
         buttonC.style.display = "none";
+        back0.style.zIndex = -1;
+        back1.style.zIndex = -1;
+        back2.style.zIndex = -1;
 
         document.getElementById("nameEdit").value=item.name;
         document.getElementById("priceEdit").value=item.price;
@@ -77,6 +95,9 @@ const Lanchonete = () => {
         page.classList.remove("fade");
         modalC.style.display = "none";
         buttonC.style.display = "flex";
+        back0.style.zIndex = 0;
+        back1.style.zIndex = 0;
+        back2.style.zIndex = 0;
 
         resetEditModal();
       }
@@ -220,7 +241,12 @@ const Lanchonete = () => {
           <Sidebar selected="lanchonete"/>
           <div className="shopContainer">
             <h1>Lanchonete</h1>
-            <h2>Edite o estoque da lanchonete</h2>
+            <div className="editItems">
+              <h2>Edite o estoque da lanchonete </h2>
+              <button id="addItem" onClick={()=>{handleModal(true)}}></button>
+            </div>
+            
+
             <div className="shopSheet">
               <div className="subtitle">
                 <h2>Bebidas</h2>
@@ -228,7 +254,7 @@ const Lanchonete = () => {
                 <h2>Doces</h2>
               </div>
               <div className="listing">
-                <div className="itemList">
+                <div className="itemList" id="back0">
                   {items.filter(item => 
                   item.type == "bebida"
                   ).map((item)=>{
@@ -244,14 +270,14 @@ const Lanchonete = () => {
                           </div>
                           <div>
                             <h4>{item.quantity}</h4>
-                            <BsFillPencilFill onClick={()=>{handleEditModal(true, item)}}/>
+                            <div class="pencil" onClick={()=>{handleEditModal(true, item)}}></div>
                           </div>
                         </div>
                       </>
                     )
                   })}
                 </div>
-                <div className="itemList">
+                <div className="itemList" id="back1">
                   {items.filter(item => 
                   item.type == "salgado"
                   ).map((item)=>{
@@ -267,14 +293,14 @@ const Lanchonete = () => {
                           </div>
                           <div>
                             <h4>{item.quantity}</h4>
-                            <BsFillPencilFill onClick={()=>{handleEditModal(true, item)}}/>
+                            <div class="pencil" onClick={()=>{handleEditModal(true, item)}}></div>
                           </div>
                         </div>
                       </>
                     )
                   })}
                 </div>
-                <div className="itemList">
+                <div className="itemList" id="back2">
                   {items.filter(item => 
                   item.type == "doce"
                   ).map((item)=>{
@@ -290,7 +316,7 @@ const Lanchonete = () => {
                           </div>
                           <div>
                             <h4>{item.quantity}</h4>
-                            <BsFillPencilFill onClick={()=>{handleEditModal(true, item)}}/>
+                            <div class="pencil" onClick={()=>{handleEditModal(true, item)}}></div>
                           </div>
                         </div>
                       </>
@@ -298,14 +324,15 @@ const Lanchonete = () => {
                   })}
                 </div>
               </div>
+              
             </div>
-            <button id="addItem" onClick={()=>{handleModal(true)}}>Adicionar novo item</button>
           </div>
         </div>
         <div className="newItemModal">
           <div className="header">
             <h2>Adicionando Item</h2>
-            <AiOutlineCloseCircle onClick={()=>{handleModal(false)}}/>
+            <div onClick={()=>{handleModal(false)}} className="close"></div>
+           
           </div>
           <div className="body">
             <h3>Nome</h3>
@@ -329,7 +356,11 @@ const Lanchonete = () => {
         <div className="editItemModal">
           <div className="header">
             <h2>Editando Item</h2>
-            <AiOutlineCloseCircle onClick={()=>{handleEditModal(false,[])}}/>
+            <div class="btHeader">
+              <div onClick={handleDelete} className="trashcan"></div>
+              <div onClick={()=>{handleEditModal(false,[])}} className="close"></div>
+            </div>
+            
           </div>
           <div className="body">
             <h3>Nome</h3>
@@ -340,10 +371,10 @@ const Lanchonete = () => {
             <input id="quantityEdit" type="number" />
           </div>
           <div className="footer">
-            <div>
-              <BsFillTrashFill onClick={handleDelete} className="trashcan"/>
+        
+              
               <button className="red" onClick={()=>{handleEditModal(false,[]); resetEditModal();}}>Descartar</button>
-            </div>
+    
             <button className="green" onClick={()=>{handleEditItem(); resetEditModal();}}>Salvar</button>
           </div>
         </div>

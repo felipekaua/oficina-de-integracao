@@ -87,7 +87,7 @@ const Menu = () => {
           <Sidebar/>
           <div className="menuContainer">
             <h1>Bem vindo!</h1>
-            <h2 className="subtitle">Altere o cardápio da semana <BsFillPencilFill/></h2>
+            <h2 className="subtitle">Altere o cardápio da semana <div></div></h2>
             <div className="menuSheet">
               <div className="horizontalListing">
                 <h3>Segunda-Feira</h3>

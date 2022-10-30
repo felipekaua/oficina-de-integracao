@@ -1,6 +1,6 @@
 .sidebar{
     height: 100%;
-    width: 25%;
+    width: 24%;
     padding-left: 2%;
     display: flex ;
     flex-direction: column;
@@ -10,12 +10,16 @@
     h1{
         cursor: pointer;
         user-select: none;
-        margin-bottom: 2%;
+        margin-bottom: 5%;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 32px;
     }
     h2{
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
         font-weight: 400;
         cursor: pointer;
-        margin-bottom: 3%;
+        margin-bottom: 8%;
     }
     div{
         margin-top: 25%;
@@ -24,7 +28,8 @@
 .selected{
     cursor: context-menu !important;
     text-decoration: underline !important;
+    font-weight: 700 !important;
 }
 .wave{
-    margin-left: -2.5%;
+    margin-left: -5.5%;
 }

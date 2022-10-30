@@ -10,19 +10,29 @@
     margin: 0 5% 0 5%;
     h1{
         font-family: 'Ephesis', cursive;
-        margin-bottom: 7%;
-        margin-top: 2%;
+        margin-bottom: 8%;
+        margin-top: 44px;
         font-weight: 400;
+        font-size: 50px;
     }
     .subtitle{
         display: flex;
         align-items: center;
         margin-bottom: 2%;
-        svg{
+        font-size: 20px;
+        div {
+            background: url(../../../../assets/shop/edit.svg) no-repeat center/cover;
+            margin-left: 1.5%;
+            width: 30px;
+            height: 30px;
+            filter: drop-shadow(0px 4px 13px rgba(0, 0, 0, 0.25));
+        }
+
+        /*svg{
             margin-left: 1%;
             height: 2%;
             width: 2%;
-        }
+        }*/
     }
     .menuSheet{
         max-width: 100%;
@@ -32,15 +42,29 @@
             justify-content: space-between;
         }
         h2{
-            border: 0.2px solid darkgray;
+            border: 0.2px solid #989898;
             background-color: var(--light-yellow);
             text-align: center;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         h3{
-            border: 0.2px solid darkgray;
+            border: 0.2px solid #989898;
             background-color: var(--light-yellow);
             width: 100%;
             text-align: center;
+            font-size: 18px;
+            font-weight: 400;
+            font-family: 'Open Sans', sans-serif;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .contentContainer{
             display: flex;
@@ -49,16 +73,33 @@
             textarea{
                 width: 100%;
                 resize: none;
+                font-size: 18px;
+                font-weight: 400;
+                font-family: 'Open Sans', sans-serif;
+                background-color: white;
+                text-align: center;
+            }
+
+            textarea:focus {
+                outline: 0;
             }
         }
     }
     button{
-        margin-top: 1%;
+        margin-top: 2%;
         cursor: pointer;
         float: right;
-        border-radius: 5px;
-        border: 1px solid var(--green);
-        background-color: var(--green);
+        border-radius: 37px;
+        border: none;
+        background: linear-gradient(88.61deg, #07AB6B 1.19%, #0BF197 97.46%);
         color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 700;
+        width: 209px;
+        height: 46px;
     }
 }
