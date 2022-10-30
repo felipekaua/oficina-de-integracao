@@ -10,7 +10,6 @@ import { BsCup, BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
 import { FaHamburger } from "react-icons/fa";
 import { TbCandy } from "react-icons/tb";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { type } from "@testing-library/user-event/dist/type";
 
 const Lanchonete = () => {
 
@@ -279,7 +278,7 @@ const Lanchonete = () => {
                 </div>
                 <div className="itemList" id="back1">
                   {items.filter(item => 
-                  item.type == "salgado"
+                  item.type === "salgado"
                   ).map((item)=>{
                     return(
                       <>

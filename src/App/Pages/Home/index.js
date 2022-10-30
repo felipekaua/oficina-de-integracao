@@ -8,7 +8,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     function navigateToLoginClient(){
-      navigate("/loginClient");
+      navigate("/dashboard");
     }
     function navigateToLoginShop(){
       navigate("/menu");
