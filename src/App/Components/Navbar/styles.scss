@@ -1,6 +1,6 @@
 
 
-.header{
+.headerBar{
     position: absolute;
     display: flex;
     justify-content: end;
@@ -20,7 +20,7 @@
 .show{
     display: flex !important;
 }
-.body{
+.bodyBar{
     z-index: 10;
     display: none;
     flex-direction: column;
@@ -178,7 +178,7 @@
 }
 
 @media (min-width: 900px) {
-  .body div{
+  .bodyBar div{
     width: 50%;
 
     h2{

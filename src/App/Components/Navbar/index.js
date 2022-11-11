@@ -19,7 +19,7 @@ const Navbar = ({selected}) => {
   }
     return(
       <>
-        <div className="header">
+        <div className="headerBar">
           <div className="button"  onClick={openNavbar}>
             <div id="nav-icon">
               <span></span>
@@ -31,7 +31,7 @@ const Navbar = ({selected}) => {
             </div>
           </div>
         </div>  
-        <div className="body" id="body">
+        <div className="bodyBar" id="body">
           <div>
             <h2 onClick={()=>{navigate("/dashboard"); openNavbar();}}>Início</h2>
             <h2>Vale Refeição</h2>
