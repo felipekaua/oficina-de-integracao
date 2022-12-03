@@ -38,6 +38,7 @@ const Dashboard = () => {
           });  
       });
     })
+    
     return(
       <>
       <div className="pageContainerMobile">

@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.scss";
 import wave from "../../../assets/shop/wave.png";
 import { useNavigate } from "react-router";
+import { auth } from "../../Firebase/firebase-config";
 
 const Sidebar = ({selected}) => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Sidebar = ({selected}) => {
                   {selected==="avaliações"?<h2 className="selected">Avaliações</h2>:<h2 onClick={()=>{navigate("/avaliações");}} id="avaliações">Avaliações</h2>}
                 </div>
             </div>
-            <h2 onClick={()=>{navigate("/");}}>Sair</h2>
+            <h2 onClick={()=>{auth.signOut().then(()=>{navigate("/");})}}>Sair</h2>
           </div>
           <img className="wave" src={wave} alt="" />
       </>
