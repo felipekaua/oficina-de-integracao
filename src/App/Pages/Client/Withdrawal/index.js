@@ -6,10 +6,12 @@ import { db, auth } from "../../../Firebase/firebase-config";
 import { collection, doc, deleteDoc, getDocs, getDoc, setDoc, addDoc } from "firebase/firestore";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
+import QRCode from "qrcode"
 
 const Withdrawal = () => {
 
   const [vouchers, setVouchers] = useState([]);
+	const [qr, setQr] = useState('');
 
   // Executa uma vez
 
@@ -36,27 +38,45 @@ const Withdrawal = () => {
 
   },[]);
 
-  // Executa sempre que há movimentação
+  const GenerateQRCode = (url) => {
+		QRCode.toDataURL(url, (err, url) => {
+			if (err) return console.error(err)
+			setQr(url)
+		})
+	}
 
-  useEffect(()=>{
+  function handleModal(product){
+    GenerateQRCode(product);
+    document.getElementsByClassName("modalContainer")[0].style.display = "flex";
+    document.getElementsByClassName("subModalContainer")[0].style.display = "flex";
+  }
 
-  })
+  function resetModal(){
+    document.getElementsByClassName("modalContainer")[0].style.display = "none";
+    document.getElementsByClassName("subModalContainer")[0].style.display = "none";
+
+  }
 
     return(
       <>
       <div className="pageContainerMobile">
-      <Navbar/>
+        <Navbar/>
         <div className="generalContainerMobile">
-        {vouchers.map((item)=>{
-          return(<>
-            <div>
-              <h2>Nome: {item.name}</h2>
-              <h2>Quantidade: {item.quantity}</h2>
-            </div>
-          </>)
-        })}
-          
+          <div className="voucherCointainer">
+            {vouchers.map((item)=>{
+              return(<>
+                <div onClick={()=>{handleModal(item.qrcode);}}>
+                  <h2>Nome: {item.name}</h2>
+                  <h2>Quantidade: {item.quantity}</h2>
+                </div>
+              </>)
+            })}
+          </div>
         </div>
+      </div>
+      <div onClick={resetModal} className="modalContainer"></div>
+      <div className="subModalContainer">
+        <img src={qr} alt="" />
       </div>
       </>
     )

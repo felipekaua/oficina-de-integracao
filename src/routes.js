@@ -12,7 +12,6 @@ import ProtectedRoute from './App/context/ProtectedRoute.js';
 import Historic from './App/Pages/Client/Historic';
 import Withdrawal from './App/Pages/Client/Withdrawal';
 import ValeRefeicao from './App/Pages/Client/ValeRefeicao';
-import MobileScanner from './App/Pages/Shop/MobileScanner';
 
 export default function Router(){
 
@@ -30,7 +29,6 @@ export default function Router(){
         <Route path="/menu" element={<ProtectedRoute><Menu/></ProtectedRoute>}/>
         <Route path="/lanchonete" element={<ProtectedRoute><Lanchonete/></ProtectedRoute>}/>
         <Route path="/avaliações" element={<ProtectedRoute><ShopReviews/></ProtectedRoute>}/>
-        <Route path="/scanner" element={<ProtectedRoute><MobileScanner/></ProtectedRoute>}/>
       </Routes>
     </UserAuthContextProvider>
   );
