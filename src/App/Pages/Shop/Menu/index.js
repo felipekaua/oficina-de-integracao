@@ -3,11 +3,11 @@ import "./styles.scss";
 import Sidebar from "../../../Components/Sidebar";
 import { BsFillPencilFill } from "react-icons/bs";
 import { db } from "../../../Firebase/firebase-config";
-import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { collection, doc, getDocs, getDoc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router";
 import { auth } from "../../../Firebase/firebase-config";
-import {Html5QrcodeScanner} from "html5-qrcode"
+import {Html5Qrcode} from "html5-qrcode"
 
 const Menu = () => {
   const navigate = useNavigate();
@@ -17,6 +17,10 @@ const Menu = () => {
     const a = ["alm","jan"];
     const b = ["segunda", "terça", "quarta", "quinta", "sexta", "sabado"];
 
+    // qr code Scanner
+
+    const [devices, setDevices] = useState([]);
+    const [selectedDevice, setSelectedDevice] = useState("");
     // Executa uma vez
 
     useEffect(()=>{
@@ -25,8 +29,11 @@ const Menu = () => {
         const data = await getDocs(menuCollectionRef);
         setMenu(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
       };
-
       getMenu();
+
+      Html5Qrcode.getCameras().then((items)=>{
+       setDevices(devices.concat(items));
+      })
       
     },[]);
 
@@ -73,24 +80,76 @@ const Menu = () => {
         });
     }
 
+    function handleScan(text){
+      const splitText = text.split('-');
+      if(splitText[0]==="r"){
+        const getItems= async () => {
+          const docRef = collection(db, "users", splitText[1], "withdrawal");
+          const docSnap = await getDocs(docRef);
+          const data = docSnap.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+          data.map(item=>{
+            if(item.qrcode===text){
+              if(item.quantity>0){
+                const update = async()=>{
+                  const newDocRef = doc(db, "users", splitText[1], "withdrawal", item.id);
+                  await updateDoc(newDocRef, {
+                    quantity: Number(item.quantity)-1,
+                  });
+                }
+                update();
+              }else{
+                const update = async()=>{
+                  const newDocRef = doc(db, "users", splitText[1], "withdrawal", item.id);
+                  await deleteDoc(newDocRef);
+                }
+                update();
+              }
+            }
+          })
+        };
+        getItems();
+      }else if(splitText[0]==="v"){
+        const getItems= async () => {
+          const docRef = doc(db, "users", splitText[1]);
+          const docSnap = await getDoc(docRef);
+          const data = docSnap.data();
+          if(data.vouchers>=0){
+            await setDoc(docRef, {
+              vouchers: Number(data.vouchers)-1,
+            });
+          }else{console.log("negative number")}
+        };
+        getItems();
+      }else{}
+    }
+
     function qr(){
-    
-      let html5QrcodeScanner = new Html5QrcodeScanner(
-        "reader",
-        { fps: 10, qrbox: {width: 250, height: 250} },
-        /* verbose= */ false);
-        html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+      Html5Qrcode.getCameras().then(devices => {
+        if (devices && devices.length) {
+          const html5QrCode = new Html5Qrcode("reader");
+          html5QrCode.start(
+            selectedDevice, 
+            {fps: 10},(decodedText, decodedResult) => {
+
+              handleScan(decodedText);
+
+              html5QrCode.stop().then((ignore) => {})
+              .catch((err) => {
+                console.log(err);
+              });
+            },
+            (errorMessage) => {
+              // parse error, ignore it.
+            })
+          .catch((err) => {
+            console.log(err);
+          });
+        }
+      }).catch(err => {
+        console.log(err);
+      });
     }
-    function onScanSuccess(decodedText, decodedResult) {
-      // handle the scanned code as you like, for example:
-      console.log(`Code matched = ${decodedText}`, decodedResult);
-    }
-    
-    function onScanFailure(error) {
-      // handle scan failure, usually better to ignore and keep scanning.
-      // for example:
-      console.warn(`Code scan error = ${error}`);
-    }
+
     
     return(
       <>
@@ -141,11 +200,22 @@ const Menu = () => {
             <button onClick={updateMenu}>Salvar</button>
           </div>
           <div className="mobileMenu">
-          <div id="reader" width="600px">
-            <button onClick={qr}>Escanear Qr code</button>
+            <div id="reader" className="reader"></div>
+            <div>
+              <select onChange={(e)=>{setSelectedDevice(e.target.value)}} name="selectedDevice" id="">
+                <option>Selecione uma Câmera</option>
+                {devices.map((device)=>{
+                  return(
+                    <>
+                      <option value={device.id}>{device.label}</option>
+                    </>
+                  )
+                })}
+              </select>
+              <button onClick={qr}>Escanear Qr code</button>
+            </div>
+            <h2 onClick={()=>{auth.signOut().then(()=>{navigate("/");})}}>Sair</h2>
           </div>
-          <h2 onClick={()=>{auth.signOut().then(()=>{navigate("/");})}}>Sair</h2>
-        </div>
         </div>
       </>
     )

@@ -1,0 +1,32 @@
+.voucherContaine{
+    overflow-y: auto;
+}
+.modalContainer{
+    display: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(5px);
+    position: absolute;
+    z-index: 3;
+}
+.subModalContainer{
+    display: none;
+    position: absolute;
+    z-index: 4;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    flex-direction: column;
+    height: 50%;
+    width: 30%;
+    background-color: black;
+    border-radius: 10px;
+
+    img{
+        width: 250px;
+    }
+}

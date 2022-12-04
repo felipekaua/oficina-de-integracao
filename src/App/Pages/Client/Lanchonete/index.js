@@ -3,11 +3,15 @@ import "./styles.scss";
 import Navbar from "../../../Components/Navbar";
 import { useEffect } from "react";
 import { db, auth } from "../../../Firebase/firebase-config";
-import { collection, doc, deleteDoc, getDocs, getDoc, setDoc, addDoc } from "firebase/firestore";
+import { collection, doc, deleteDoc, getDocs, getDoc, updateDoc, addDoc } from "firebase/firestore";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { useNavigate } from "react-router";
+
 const LanchoneteCliente = () => {
+  
+  const navigate = useNavigate();
 
   const itemCollectionRef = collection(db, "items");
   const [items, setItems] = useState([]);
@@ -65,17 +69,29 @@ const LanchoneteCliente = () => {
 
   function addToCart(){
     if(id!=="" && qtd!=0){
-      const itemToJson = {
-        id: id,
-        name: name,
-        qtd: qtd,
-        price: price
+      let isEnough = false;
+      const submitDeduct = async()=>{
+        const docRef = doc(db, "items", id);
+        const docSnap = await getDoc(docRef);
+        const data = docSnap.data();
+        var newQtd = Number(data.quantity) - Number(qtd);
+        if(newQtd>=0){
+          const itemToJson = {
+            id: id,
+            name: name,
+            qtd: qtd,
+            price: price
+          }
+          const arr = [itemToJson];
+          setBuy(buy.concat(name+"; "));
+          setCart(cart.concat(arr));
+        }else{
+          console.log("is not enough");
+        }
       }
-      const arr = [itemToJson];
-      setBuy(buy.concat(name+"; "));
-      setCart(cart.concat(arr));
+      submitDeduct();
+      resetModal();
     }
-    resetModal();
   }
 
   function handleBuy(){
@@ -86,14 +102,30 @@ const LanchoneteCliente = () => {
       price=price+(Number(item.price)*item.qtd);
     })
     cart.map(item=>{
+      const qr = "r-"+user.uid+"-"+item.id;
       const submit = async()=>{
       await addDoc(collection(db, "users", user.uid, "withdrawal"),{
-        itemId: item.id,
         name: item.name,
-        quantity: item.qtd
-      });
+        quantity: item.qtd,
+        qrcode: qr
+      })}
+    submit()
+    const submitDeduct = async()=>{
+      const docRef = doc(db, "items", item.id);
+      const docSnap = await getDoc(docRef);
+      const data = docSnap.data();
+      var newQtd = data.quantity - item.qtd;
+      if(newQtd<=0){
+        await deleteDoc(docRef);
+      }else{
+        await updateDoc(docRef,{
+          quantity: newQtd
+        });
+      }
+      
     }
-    submit();
+    submitDeduct();
+    
     })
     var data = new Date();
     var dia = String(data.getDate()).padStart(2, '0');
@@ -110,6 +142,8 @@ const LanchoneteCliente = () => {
     submit();
     }
     setCart([]);
+
+    navigate("/retirada");
   }
 
   function handleFilter(parameter){
@@ -158,6 +192,7 @@ const LanchoneteCliente = () => {
                           <div>
                             <h4>{item.name}</h4>
                             <h5>R$ {item.price}</h5>
+                            <h6>Estoque: {item.quantity}</h6>
                           </div>
                         </div>
                       </> 

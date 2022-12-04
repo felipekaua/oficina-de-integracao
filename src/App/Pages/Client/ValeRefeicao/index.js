@@ -22,7 +22,7 @@ const Withdrawal = () => {
     const data = docSnap.data();
     if (docSnap.exists()) {
       setVouchers(Number(data.vouchers));
-      GenerateQRCode(user);
+      GenerateQRCode("v-"+user);
     } else {
       console.log("No such document!");
     }
@@ -31,7 +31,7 @@ const Withdrawal = () => {
 	const GenerateQRCode = (url) => {
 		QRCode.toDataURL(url, (err, url) => {
 			if (err) return console.error(err)
-			setQr(url)
+			setQr(url);
 		})
 	}
 
