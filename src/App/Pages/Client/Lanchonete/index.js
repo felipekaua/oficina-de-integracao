@@ -35,7 +35,8 @@ const LanchoneteCliente = () => {
   useEffect(()=>{
 
     refreshItems();
-    document.getElementById('opt1').classList.add('selected');
+    document.getElementById('opt1').classList.add('selected-buy');
+    
     
   },[]);
 
@@ -116,21 +117,21 @@ const LanchoneteCliente = () => {
     switch(parameter){
       case 'bebida':
         setFilter("bebida");
-        document.getElementById('opt1').classList.add('selected');
-        document.getElementById('opt2').classList.remove('selected');
-        document.getElementById('opt3').classList.remove('selected');
+        document.getElementById('opt1').classList.add('selected-buy');
+        document.getElementById('opt2').classList.remove('selected-buy');
+        document.getElementById('opt3').classList.remove('selected-buy');
         break;
       case 'salgado':
         setFilter("salgado");
-        document.getElementById('opt2').classList.add('selected');
-        document.getElementById('opt1').classList.remove('selected');
-        document.getElementById('opt3').classList.remove('selected');
+        document.getElementById('opt2').classList.add('selected-buy');
+        document.getElementById('opt1').classList.remove('selected-buy');
+        document.getElementById('opt3').classList.remove('selected-buy');
         break;
       case 'doce':
         setFilter("doce");
-        document.getElementById('opt3').classList.add('selected');
-        document.getElementById('opt2').classList.remove('selected');
-        document.getElementById('opt1').classList.remove('selected');
+        document.getElementById('opt3').classList.add('selected-buy');
+        document.getElementById('opt2').classList.remove('selected-buy');
+        document.getElementById('opt1').classList.remove('selected-buy');
         break;
     }
   }
@@ -139,7 +140,7 @@ const LanchoneteCliente = () => {
       <>
       <div className="pageContainerMobile">
         <Navbar/>
-        <div className="generalContainerMobile">
+        <div className="generalContainerMobile-lanchonete">
             <div className="filterContainer">
               <h1>Lanchonete</h1>
               <div>
@@ -148,16 +149,20 @@ const LanchoneteCliente = () => {
                 <h2 id="opt3" onClick={()=>{handleFilter('doce')}}>Doces</h2>
               </div>
             </div>
+            
             <div className="itemListing">
               {items.filter(item => 
                   item.type === filter
                   ).map((item)=>{
                     return(
                       <>
-                        <div onClick={()=>{showModal(); setId(item.id); setName(item.name); setPrice(item.price); }} className="itemContainer">
-                          <div>
+                        <div className="itemContainer">
+                          <div className="over">
                             <h4>{item.name}</h4>
                             <h5>R$ {item.price}</h5>
+                          </div>
+                          <div className="buy">
+                            <button onClick={()=>{showModal(); setId(item.id); setName(item.name); setPrice(item.price); }}></button>
                           </div>
                         </div>
                       </> 
@@ -175,14 +180,21 @@ const LanchoneteCliente = () => {
       </div>
       <div onClick={resetModal} className="quantityModal"></div>
       <div className="quantityContainer">
-        <h2> Você selecionou: {name}</h2>
-        <h2>Quantas unidades você deseja?</h2>
-        <div>
-          <button onClick={()=>{if(qtd>0){setQtd(Number(qtd)-1)}}}>-</button>
-          <input type="number" value={qtd} onChange={(e)=>{setQtd(e.target.value)}} />
-          <button onClick={()=>{setQtd(Number(qtd)+1)}}>+</button>
+        <div className="modal-open">
+          <div className="title-buy">
+            <h1> Quantos deseja comprar? </h1>
+            <h2>Item selecionado: {name}</h2>
+          </div>
+          <div className="compra">
+              <button className="button-remove" onClick={()=>{if(qtd>0){setQtd(Number(qtd)-1)}}}></button>
+              <input type="number" value={qtd} onChange={(e)=>{setQtd(e.target.value)}} />
+              <button className="button-add" onClick={()=>{setQtd(Number(qtd)+1)}}></button>
+          </div>
+          <div className="button-buy">
+            <button className="add-item" onClick={addToCart}>Confirmar</button>
+          </div>
+          
         </div>
-        <button onClick={addToCart}>Confirmar</button>
       </div>
       </>
     )

@@ -1,36 +1,119 @@
-.filterContainer{
-    width: 70%;
+
+.generalContainerMobile-lanchonete{
+    width: 100%;
+    height: 88%;
     display: flex;
     flex-direction: column;
-    h1{
-        margin-bottom: 1% !important;
-    }
+    align-items: center;
+    position: absolute;
+    border-radius: 20px 20px 0 0;
+    top: 12%;
+    
+    background-color: var(--white);
+    box-shadow: 0px 1px 12px 7px rgba(0,0,0,0.31);
 
-    div{
-        justify-content: space-between;
+    .filterContainer{
+        width: 100%;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
+        padding: 0 21px 0 21px;
+        h1{
+            font-family: 'Ephesis', cursive;
+            font-size: 50px;
+            letter-spacing: 0.1em;
+            margin-bottom: 30px;
+            font-weight: 400;
+            text-align: center;
+           
+            margin-top: 40px;
+        }
+
+        div{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 40px;
+
+            h2{
+                font-family: 'Open Sans', sans-serif;
+                font-size: 15px;
+                font-weight: 700;
+            }
+        }
+
+        
     }
 }
-.selected{
-    text-decoration: underline;
+.selected-buy{
+    border-bottom: 1px solid #000;
+    padding-bottom: 4px;
 }
 .itemListing{
-    margin-top: 1%;
     overflow-y: auto;
     max-height: 70%;
-    min-width: 70%;
+    min-width: 100%;
+    padding: 0 21px 0 21px;
+    height: auto;
 
     .itemContainer{
+        width: 100%;
+        height: 55px;
         display: flex;
-        justify-content: space-between;
-        margin-right: 3px;
+        align-items: center;
+        margin-top: 3px;
+        margin-bottom: 6px;
+        border-bottom: 1px solid #A5A5A5;
     }
+
+    .over{
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+    
+        h4 {
+            width: 100px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+        }
+    
+        h5 {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+        }
+    }
+
+    .buy{
+
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+
+        button {
+            border: none;
+            background: url(../../../../assets/shop/add.svg) no-repeat center/cover;
+            filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15));
+            width: 15px;
+            height: 15px;
+    
+            margin-left: 8px;
+            cursor: pointer;
+        }
+    }
+
+   
 }
 .checkoutContainer{
-    width: 70%;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
     justify-content: space-between;
-    display: flex;
+    display:flex;
+    padding: 0 21px 30px 21px;
+    
 
     .cartCounter{
         position: relative;
@@ -50,6 +133,19 @@
             padding-right: 5px;
         }
     }
+
+    button {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: #FFFFFF;
+
+        background: linear-gradient(88.61deg, #07AB6B 1.19%, #0BF197 97.46%);
+        border-radius: 37px;
+        border: none;
+        width: 176px;
+        height: 46px;
+    }
 }
 .quantityModal{
     display: none;
@@ -57,7 +153,8 @@
     left: 0;
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(2px);
+    background-color: rgba(76, 72, 67, 0.57);
     position: absolute;
     z-index: 3;
 }
@@ -72,7 +169,98 @@
     margin: auto;
     flex-direction: column;
     height: 50%;
-    width: 70%;
+    width: 90%;
     background-color: var(--white);
-    border-radius: 10px;
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+
+    padding: 21px;
+
+    .modal-open{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+
+        .title-buy {
+            width: 100%;
+            h1 {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 18px;
+                font-weight: 400;
+            }
+    
+            h2 {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 400;
+
+                margin-top: 5px;
+            }
+        }
+
+        
+    
+        .compra {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .button-add {
+                background: url(../../../../assets/shop/add-green.svg) no-repeat center/cover;
+                width: 15px;
+                height: 15px;
+                border:none;
+                padding: 0;
+                cursor: pointer;
+            }
+        
+            .button-remove {
+                background: url(../../../../assets/shop/remove.svg) no-repeat center/cover;
+                width: 15px;
+                height: 15px;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+            }
+        
+            input {
+                width: 100px;
+                text-align: center;
+                font-family: 'Open Sans', sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+        
+                background: #FFFFFF;
+                border: 1px solid #989898;
+                border-radius: 10px;
+            }
+        }
+    
+        .button-buy {
+           
+
+            .add-item {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 18px;
+                font-weight: 700;
+                color: #FFFFFF;
+        
+                background: linear-gradient(88.61deg, #07AB6B 1.19%, #0BF197 97.46%);
+                border-radius: 37px;
+                border: none;
+                width: 170px;
+                height: 40px;
+    
+            }
+        }
+
+        
+    }
+
+    
 }
