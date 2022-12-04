@@ -113,7 +113,7 @@ const Menu = () => {
           const docRef = doc(db, "users", splitText[1]);
           const docSnap = await getDoc(docRef);
           const data = docSnap.data();
-          if(data.vouchers>=0){
+          if(data.vouchers>0){
             await setDoc(docRef, {
               vouchers: Number(data.vouchers)-1,
             });
