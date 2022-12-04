@@ -139,7 +139,7 @@ const Menu = () => {
               });
             },
             (errorMessage) => {
-              // parse error, ignore it.
+              console.log(errorMessage);
             })
           .catch((err) => {
             console.log(err);
