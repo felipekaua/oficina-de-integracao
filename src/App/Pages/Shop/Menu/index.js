@@ -5,8 +5,12 @@ import { BsFillPencilFill } from "react-icons/bs";
 import { db } from "../../../Firebase/firebase-config";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from "react-router";
+import { auth } from "../../../Firebase/firebase-config";
+import {Html5QrcodeScanner} from "html5-qrcode"
 
 const Menu = () => {
+  const navigate = useNavigate();
 
     const menuCollectionRef = collection(db, "menu");
     const [menu, setMenu] = useState([]);
@@ -68,6 +72,26 @@ const Menu = () => {
         theme: "light",
         });
     }
+
+    function qr(){
+    
+      let html5QrcodeScanner = new Html5QrcodeScanner(
+        "reader",
+        { fps: 10, qrbox: {width: 250, height: 250} },
+        /* verbose= */ false);
+        html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+    }
+    function onScanSuccess(decodedText, decodedResult) {
+      // handle the scanned code as you like, for example:
+      console.log(`Code matched = ${decodedText}`, decodedResult);
+    }
+    
+    function onScanFailure(error) {
+      // handle scan failure, usually better to ignore and keep scanning.
+      // for example:
+      console.warn(`Code scan error = ${error}`);
+    }
+    
     return(
       <>
       <ToastContainer
@@ -116,6 +140,12 @@ const Menu = () => {
             </div> 
             <button onClick={updateMenu}>Salvar</button>
           </div>
+          <div className="mobileMenu">
+          <div id="reader" width="600px">
+            <button onClick={qr}>Escanear Qr code</button>
+          </div>
+          <h2 onClick={()=>{auth.signOut().then(()=>{navigate("/");})}}>Sair</h2>
+        </div>
         </div>
       </>
     )

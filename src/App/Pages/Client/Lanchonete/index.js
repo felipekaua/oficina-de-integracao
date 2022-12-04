@@ -13,8 +13,9 @@ const LanchoneteCliente = () => {
   const [items, setItems] = useState([]);
   const [filter, setFilter] = useState('bebida');
   const [qtd, setQtd] = useState(0);
-  const [selectedItem, setSelectedItem] = useState("");
-  const [id, setId] = useState("");
+  const [id, setId] = useState("")
+  const [name, setName] = useState("");
+  const [buy, setBuy] = useState([]);
   const [price, setPrice] = useState(0);
   const [cartCounter, setCartCounter] = useState(0);
   const [cart, setCart] = useState([]);
@@ -52,6 +53,7 @@ const LanchoneteCliente = () => {
     document.getElementsByClassName("quantityModal")[0].style.display = 'none';
     document.getElementsByClassName("quantityContainer")[0].style.display = 'none';
     setId("");
+    setName("");
     setQtd(0);
     setPrice(0);
   }
@@ -59,17 +61,18 @@ const LanchoneteCliente = () => {
   function showModal(){
     document.getElementsByClassName("quantityModal")[0].style.display = 'flex';
     document.getElementsByClassName("quantityContainer")[0].style.display = 'flex';
-    console.log(cart);
   }
 
   function addToCart(){
     if(id!=="" && qtd!=0){
       const itemToJson = {
         id: id,
+        name: name,
         qtd: qtd,
         price: price
       }
       const arr = [itemToJson];
+      setBuy(buy.concat(name+"; "));
       setCart(cart.concat(arr));
     }
     resetModal();
@@ -86,6 +89,7 @@ const LanchoneteCliente = () => {
       const submit = async()=>{
       await addDoc(collection(db, "users", user.uid, "withdrawal"),{
         itemId: item.id,
+        name: item.name,
         quantity: item.qtd
       });
     }
@@ -99,6 +103,7 @@ const LanchoneteCliente = () => {
     const submit = async()=>{
       await addDoc(collection(db, "users", user.uid, "historic"),{
         price: price,
+        buy: buy,
         date: dataAtual
       });
     }
@@ -149,7 +154,7 @@ const LanchoneteCliente = () => {
                   ).map((item)=>{
                     return(
                       <>
-                        <div onClick={()=>{showModal(); setId(item.id); setPrice(item.price); setSelectedItem(item.name)}} className="itemContainer">
+                        <div onClick={()=>{showModal(); setId(item.id); setName(item.name); setPrice(item.price); }} className="itemContainer">
                           <div>
                             <h4>{item.name}</h4>
                             <h5>R$ {item.price}</h5>
@@ -170,7 +175,7 @@ const LanchoneteCliente = () => {
       </div>
       <div onClick={resetModal} className="quantityModal"></div>
       <div className="quantityContainer">
-        <h2> Você selecionou: {selectedItem}</h2>
+        <h2> Você selecionou: {name}</h2>
         <h2>Quantas unidades você deseja?</h2>
         <div>
           <button onClick={()=>{if(qtd>0){setQtd(Number(qtd)-1)}}}>-</button>

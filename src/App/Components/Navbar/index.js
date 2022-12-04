@@ -35,7 +35,7 @@ const Navbar = ({selected}) => {
         <div className="bodyBar" id="body">
           <div>
             <h2 onClick={()=>{navigate("/dashboard"); openNavbar();}}>Início</h2>
-            <h2>Vale Refeição</h2>
+            <h2 onClick={()=>{navigate("/vale-refeicao"); openNavbar();}}>Vale Refeição</h2>
             <h2 onClick={()=>{navigate("/lanchonete-cliente"); openNavbar();}}>Lanchonete</h2>
             <h2 onClick={()=>{navigate("/retirada"); openNavbar();}}>Retirada</h2>
             <h2 onClick={()=>{navigate("/historico"); openNavbar();}}>Histórico</h2>

@@ -14,9 +14,8 @@ const Historic = () => {
 
   // Executa uma vez
 
-  function refreshPurchases(){
-    const user = auth.currentUser;
-    const purchasesCollectionRef = collection(db, "users", user.uid, "historic");
+  function refreshPurchases(user){
+    const purchasesCollectionRef = collection(db, "users", user, "historic");
     const getPurchases= async () => {
       const data = await getDocs(purchasesCollectionRef);
       setPurchases(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
@@ -26,6 +25,16 @@ const Historic = () => {
   }
 
   useEffect(()=>{
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        var uid = user.uid;
+        refreshPurchases(uid);
+        console.log("is running the function")
+      } else {
+        // User is signed out
+        // ...
+      }
+    });
 
   },[]);
 
@@ -40,15 +49,11 @@ const Historic = () => {
       <div className="pageContainerMobile">
       <Navbar/>
       <div className="generalContainerMobile">
-        
-        <button id="refresh" 
-        onClick={()=>{refreshPurchases(); document.getElementById('refresh').style.display='none' }}>
-        Carregar Histórico
-        </button>
         {purchases.map((item)=>{
           return(<>
             <div>
               <h2>Data: {item.date}</h2>
+              <h2>Comprado: {item.buy}</h2>
               <h2>Preço total: R$ {item.price}</h2>
             </div>
           </>)
