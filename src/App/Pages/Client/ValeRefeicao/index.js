@@ -62,7 +62,8 @@ const Withdrawal = () => {
       <>
       <div className="pageContainerMobile">
       <Navbar/>
-        <div className="generalContainerMobile">
+        <div className="generalContainerMobile-vale">
+          <h1>Vale Refeição</h1>
           <div className="firstBlock">  
             <h2>Vales disponíveis</h2>
             <h3>{vouchers}</h3>
@@ -70,21 +71,25 @@ const Withdrawal = () => {
           </div>
           <div className="secondBlock">
             <h2>Comprar vales</h2>
-            <div>
-              <button onClick={()=>{if(voucherQtd>0){setVoucherQtd(Number(voucherQtd)-1)}}}>-</button>
+            <div className="compra-vale">
+              <button className="add-vale" onClick={()=>{setVoucherQtd(Number(voucherQtd)+1)}}></button>
               <input type="number" id="vouchers" value={voucherQtd} />
-              <button onClick={()=>{setVoucherQtd(Number(voucherQtd)+1)}}>+</button>
+              <button className="remove-vale" onClick={()=>{if(voucherQtd>0){setVoucherQtd(Number(voucherQtd)-1)}}}></button>
             </div>
-            <h2>Total: {voucherQtd*3.5}</h2>
-            <h3>Forma de Pagamento</h3>
-            <div>
-              <input type="radio" id="pix" name="buyMethod" />
-              <label htmlFor="pix">Pix</label>
+            <h3>Preço total: {voucherQtd*3.5}</h3>
+            <h2>Forma de Pagamento</h2>
+            <div className="options">
+              <div className="option-buy">
+                <label htmlFor="pix">Pix</label>
+                <input type="radio" id="pix" name="buyMethod" />
+              </div>
+              <div className="line-buy"></div>
+              <div className="option-buy">
+                <label htmlFor="cartao">Cartão</label>
+                <input type="radio" id="cartao" name="buyMethod" />
+              </div>
             </div>
-            <div>
-              <input type="radio" id="cartao" name="buyMethod" />
-              <label htmlFor="cartao">Cartão</label>
-            </div>
+            
             <button onClick={handleBuy}>Confirmar</button>
           </div>
           
