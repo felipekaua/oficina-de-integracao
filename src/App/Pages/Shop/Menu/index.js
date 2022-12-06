@@ -108,6 +108,16 @@ const Menu = () => {
           })
         };
         getItems();
+        toast.success('Item escaneado com sucesso', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
       }else if(splitText[0]==="v"){
         const getItems= async () => {
           const docRef = doc(db, "users", splitText[1]);
@@ -117,7 +127,28 @@ const Menu = () => {
             await setDoc(docRef, {
               vouchers: Number(data.vouchers)-1,
             });
-          }else{console.log("negative number")}
+          toast.success('Vale escaneado com sucesso', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+          }else{
+            toast.error('Não há Vales', {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
+          }
         };
         getItems();
       }else{}

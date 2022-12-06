@@ -47,19 +47,65 @@ const Withdrawal = () => {
   },[]);
 
   function handleBuy(){
-    const submit = async()=>{
-      await setDoc(doc(db, "users", user), {
-        vouchers: voucherQtd+vouchers
-      });
-      getItems(user);
+    if(voucherQtd>0){
+      try{
+        const submit = async()=>{
+          await setDoc(doc(db, "users", user), {
+            vouchers: voucherQtd+vouchers
+          });
+          getItems(user);
+        }
+        submit();
+        document.getElementById("vouchers").value = 0;
+        setVoucherQtd(0);
+        toast.success('Vale(s) comprado(s) com sucesso!', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      }catch{
+        toast.error('Algo de errado ocorreu...', {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });}
+    }else{
+      toast.error('Não é possível comprar 0 vales!', {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
-    submit();
-    document.getElementById("vouchers").value = 0;
-    setVoucherQtd(0);
   }
 
     return(
       <>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"/>
       <div className="pageContainerMobile">
       <Navbar/>
         <div className="generalContainerMobile-vale">
@@ -76,7 +122,7 @@ const Withdrawal = () => {
               <input type="number" id="vouchers" value={voucherQtd} />
               <button className="remove-vale" onClick={()=>{if(voucherQtd>0){setVoucherQtd(Number(voucherQtd)-1)}}}></button>
             </div>
-            <h3>Preço total: {voucherQtd*3.5}</h3>
+            <h3>Preço total: R$ {voucherQtd*3.5}</h3>
             <h2>Forma de Pagamento</h2>
             <div className="options">
               <div className="option-buy">

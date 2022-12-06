@@ -69,8 +69,7 @@ const LanchoneteCliente = () => {
   }
 
   function addToCart(){
-    if(id!=="" && qtd!=0){
-      let isEnough = false;
+    if(id!=="" && qtd!==0){
       const submitDeduct = async()=>{
         const docRef = doc(db, "items", id);
         const docSnap = await getDoc(docRef);
@@ -86,8 +85,27 @@ const LanchoneteCliente = () => {
           const arr = [itemToJson];
           setBuy(buy.concat(name+"; "));
           setCart(cart.concat(arr));
+          toast.success('Item(s) adicionado(s) no carrinho!', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
         }else{
-          console.log("is not enough");
+          toast.error('Não existem unidades suficientes!', {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
         }
       }
       submitDeduct();
@@ -96,7 +114,7 @@ const LanchoneteCliente = () => {
   }
 
   function handleBuy(){
-    if(cart!=[]){
+    if(cart!==[]){
     const user = auth.currentUser;
     var price=0;
     cart.map(item=>{
@@ -167,11 +185,34 @@ const LanchoneteCliente = () => {
         document.getElementById('opt2').classList.remove('selected-buy');
         document.getElementById('opt1').classList.remove('selected-buy');
         break;
+      default:
+        toast.error('Um erro inesperado ocorreu...', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+        break;
     }
   }
 
     return(
       <>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"/>
       <div className="pageContainerMobile">
         <Navbar/>
         <div className="generalContainerMobile-lanchonete">
