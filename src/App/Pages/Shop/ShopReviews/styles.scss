@@ -3,7 +3,7 @@
     height: 100%;
 
     .containerReview{
-        width: 1000px;
+        width: 100%;
         display: flex;
         flex-direction: column;
         margin-left: 68px;
@@ -27,7 +27,7 @@
         .reviewsContainer{
             width: 100%;
             overflow-y: auto;
-            height: 480px;
+            height: 100%;
 
             .review {
                 background: #FFFFFF;
@@ -50,6 +50,19 @@
         ::-webkit-scrollbar-thumb {
             background-color: #A5A5A5;
             border-radius: 5px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .containerReview{
+        margin: 0 !important;
+        align-items: center;
+        h1{
+            margin: 0 !important;
+        }
+        h2{
+            margin: 0 !important;
         }
     }
 }

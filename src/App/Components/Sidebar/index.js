@@ -9,12 +9,11 @@ const Sidebar = ({selected}) => {
     return(
       <>
           <div className="sidebar">
-            <div>
+            <div className="sidebarButtons">
                 <h1 onClick={()=>{navigate("/menu");}}>Menu</h1>
                 <div>
-                  {selected==="vale"?<h2 className="selected">Vale refeição</h2>:<h2 id="vale">Vale refeição</h2>}
                   {selected==="lanchonete"?<h2 className="selected">Lanchonete</h2>:<h2 onClick={()=>{navigate("/lanchonete");}} id="lanchonete">Lanchonete</h2>}
-                  {selected==="avaliações"?<h2 className="selected">Avaliações</h2>:<h2 onClick={()=>{navigate("/avaliações");}} id="avaliações">Avaliações</h2>}
+                  {selected==="avaliações"?<h2 className="selected">Avaliações</h2>:<h2 onClick={()=>{navigate("/avaliacoes");}} id="avaliações">Avaliações</h2>}
                 </div>
             </div>
             <h2 onClick={()=>{auth.signOut().then(()=>{navigate("/");})}}>Sair</h2>

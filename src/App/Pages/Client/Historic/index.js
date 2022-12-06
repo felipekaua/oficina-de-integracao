@@ -49,15 +49,17 @@ const Historic = () => {
       <div className="pageContainerMobile">
       <Navbar/>
       <div className="generalContainerMobile">
-        {purchases.map((item)=>{
-          return(<>
-            <div>
-              <h2>Data: {item.date}</h2>
-              <h2>Comprado: {item.buy}</h2>
-              <h2>Preço total: R$ {item.price}</h2>
-            </div>
-          </>)
-        })}
+        <div className="historic">
+          {purchases.map((item)=>{
+            return(<>
+              <div>
+                <h2>Data: {item.date}</h2>
+                <h2>Comprado: {item.buy}</h2>
+                <h2>Preço total: R$ {item.price}</h2>
+              </div>
+            </>)
+          })}
+        </div>
       </div>
       </div>
       </>

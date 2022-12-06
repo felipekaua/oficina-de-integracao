@@ -3,9 +3,10 @@ import "./styles.scss";
 import Navbar from "../../../Components/Navbar";
 import { useEffect } from "react";
 import { db, auth } from "../../../Firebase/firebase-config";
-import { collection, doc, deleteDoc, getDocs, getDoc, setDoc, addDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
+import voucher from '../../../../assets/client/voucher.png';
 import QRCode from "qrcode"
 
 const Withdrawal = () => {
@@ -13,7 +14,7 @@ const Withdrawal = () => {
   const [vouchers, setVouchers] = useState(0);
   const [voucherQtd, setVoucherQtd] = useState(0);
   const [user, setUser] = useState("");
-	const [qr, setQr] = useState('');
+	const [qr, setQr] = useState(voucher);
 
   const getItems= async (user) => {
     setUser(user);

@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./styles.scss";
 import { useNavigate } from "react-router";
 import container from "../../../assets/login/container.png";
 import 
 { 
-  auth, getAuth, createUserWithEmailAndPassword, 
+   getAuth, createUserWithEmailAndPassword, 
   signInWithEmailAndPassword, signInAnonymously, 
   setPersistence, browserSessionPersistence, db
 } from "firebase/auth";
+import { ToastContainer, toast } from 'react-toastify';
 
 
 const Home = () => {
@@ -40,11 +41,21 @@ const Home = () => {
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in 
-        alert("conta criada");
         setLoggedIn(true);
         resetModal();
       })
-      .catch();
+      .catch(()=>{
+        toast.error('Essa conta já Existe!', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      });
     }
 
     function Login(event){
@@ -57,7 +68,18 @@ const Home = () => {
         setLoggedIn(true);
         resetModal();
       })
-      .catch();
+      .catch(()=>{
+        toast.error('Certifique-se que seu email e senha estão corretos!', {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
+      });
     }
 
     function Anonimo(){
@@ -73,6 +95,17 @@ const Home = () => {
 
     return(
       <>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"/>
         <div className="blackScreen"></div>
         <div className="background"></div>
         <div className="login">
@@ -84,13 +117,13 @@ const Home = () => {
               document.getElementsByClassName("loginModal")[0].style.display = "flex";
               document.getElementsByClassName("loginModalContainer")[0].style.display = "flex";
             }}>
-            Entrar com conta
+            Entrar
             </button>
-            <button onClick={Anonimo}>Entrar como convidado</button>
+            <button onClick={Anonimo}>Debug Login</button>
             </>}
             {loggedIn && <>
-            <button onClick={navigateToLoginShop}>LOGIN</button>
-            <button onClick={navigateToLoginClient}>MOBILE</button>
+            <button onClick={navigateToLoginShop}>Loja</button>
+            <button onClick={navigateToLoginClient}>Cliente</button>
             </>}
           </div>
         </div>

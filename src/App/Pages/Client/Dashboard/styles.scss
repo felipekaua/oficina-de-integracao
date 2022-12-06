@@ -50,11 +50,11 @@
             
            
             .horizontalListingMobile{
-                min-width: max-content;
                 background-color: var(--light-yellow);
                 display: flex;
                 align-items: flex-start;
                 justify-content: start;
+                width: 1200px;
 
                 h2{
                     border: 0.2px solid #989898;
@@ -67,17 +67,16 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    min-width: 150px;
+                    min-width: 200px;
                     white-space: nowrap;
                 }
             }
             .subtitle{
-                min-width: max-content;
                 background-color: var(--light-yellow);
+                width: 1200px;
                 
                 h2{
                     border: 0.2px solid #989898;
-                    min-width: max-content;
                     padding-left: 26px;
                     text-align: start;
                     display: flex;
@@ -91,15 +90,14 @@
                 }
             }
             .contentContainerMobile{
-                width: 100%;
+                width: 1200px;
                 display: flex;
                 align-items: flex-start;
                 justify-content: start;
 
                 textarea{
                     resize: none;
-                    min-width: 150px;
-                    width: 100%;
+                    min-width: 200px;
                     overflow: auto;
                     outline: none;
 
@@ -121,7 +119,7 @@
                   }
             }
             .overflowWrapper{
-                width: 150%;
+                width: 100%;
                 height: 100%;
                 margin-bottom: 6px;
             }

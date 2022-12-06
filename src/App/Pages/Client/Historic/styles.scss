@@ -1,0 +1,11 @@
+.historic{
+    height: 100%;
+    overflow: auto;
+
+    div{
+        border-top: 1px solid var(--grey);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-top: 10px;
+    }
+}

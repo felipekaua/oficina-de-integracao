@@ -3,13 +3,9 @@ import "./styles.scss";
 import Sidebar from "../../../Components/Sidebar";
 import { useEffect } from "react";
 import { db } from "../../../Firebase/firebase-config";
-import { collection, doc, deleteDoc, getDocs, getDoc, setDoc, addDoc } from "firebase/firestore";
+import { collection, doc, deleteDoc, getDocs, setDoc, addDoc } from "firebase/firestore";
 import { useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
-import { BsCup, BsFillPencilFill, BsFillTrashFill } from "react-icons/bs";
-import { FaHamburger } from "react-icons/fa";
-import { TbCandy } from "react-icons/tb";
-import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const Lanchonete = () => {
 
@@ -268,7 +264,7 @@ const Lanchonete = () => {
                             </div>
                           </div>
                           <div>
-                            <h4>{item.quantity}</h4>
+                            <h4 className="qtd">{item.quantity}</h4>
                             <div class="pencil" onClick={()=>{handleEditModal(true, item)}}></div>
                           </div>
                         </div>
@@ -291,7 +287,7 @@ const Lanchonete = () => {
                             </div>
                           </div>
                           <div>
-                            <h4>{item.quantity}</h4>
+                            <h4 className="qtd">{item.quantity}</h4>
                             <div class="pencil" onClick={()=>{handleEditModal(true, item)}}></div>
                           </div>
                         </div>
@@ -314,7 +310,7 @@ const Lanchonete = () => {
                             </div>
                           </div>
                           <div>
-                            <h4>{item.quantity}</h4>
+                            <h4 className="qtd">{item.quantity}</h4>
                             <div class="pencil" onClick={()=>{handleEditModal(true, item)}}></div>
                           </div>
                         </div>

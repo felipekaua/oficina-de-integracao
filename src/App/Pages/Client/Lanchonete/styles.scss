@@ -100,8 +100,8 @@
             border: none;
             background: url(../../../../assets/shop/add.svg) no-repeat center/cover;
             filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15));
-            width: 15px;
-            height: 15px;
+            width: 25px;
+            height: 25px;
     
             margin-left: 8px;
             cursor: pointer;
@@ -215,8 +215,8 @@
 
             .button-add {
                 background: url(../../../../assets/shop/add-green.svg) no-repeat center/cover;
-                width: 15px;
-                height: 15px;
+                width: 50px;
+                height: 50px;
                 border:none;
                 padding: 0;
                 cursor: pointer;
@@ -224,8 +224,8 @@
         
             .button-remove {
                 background: url(../../../../assets/shop/remove.svg) no-repeat center/cover;
-                width: 15px;
-                height: 15px;
+                width: 50px;
+                height: 50px;
                 border: none;
                 padding: 0;
                 cursor: pointer;
@@ -233,6 +233,7 @@
         
             input {
                 width: 100px;
+                height: 100%;
                 text-align: center;
                 font-family: 'Open Sans', sans-serif;
                 font-size: 16px;

@@ -1,13 +1,13 @@
 import React, { useEffect, useState }  from "react";
 import "./styles.scss";
 import Sidebar from "../../../Components/Sidebar";
-import { BsFillPencilFill } from "react-icons/bs";
 import { db } from "../../../Firebase/firebase-config";
 import { collection, doc, getDocs, getDoc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from "react-router";
-import { auth } from "../../../Firebase/firebase-config";
 import {Html5Qrcode} from "html5-qrcode"
+import { AiOutlineQrcode } from "react-icons/ai";
+import { BiQrScan } from "react-icons/bi";
 
 const Menu = () => {
   const navigate = useNavigate();
@@ -16,6 +16,7 @@ const Menu = () => {
     const [menu, setMenu] = useState([]);
     const a = ["alm","jan"];
     const b = ["segunda", "terça", "quarta", "quinta", "sexta", "sabado"];
+    const [qrMode, setQrMode] = useState(false);
 
     // qr code Scanner
 
@@ -166,22 +167,62 @@ const Menu = () => {
 
               html5QrCode.stop().then((ignore) => {})
               .catch((err) => {
-                console.log(err);
+                toast.error(err, {
+                  position: "top-center",
+                  autoClose: 1000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+                  });
               });
             },
-            (errorMessage) => {
-              console.log(errorMessage);
-            })
+            (errorMessage) => {})
           .catch((err) => {
-            console.log(err);
+            toast.error(err, {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              });
           });
         }
       }).catch(err => {
-        console.log(err);
+        toast.error(err, {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
       });
     }
 
-    
+    function toggle(){
+      if(qrMode){
+        document.getElementsByClassName('menuContainer')[0].style.display = "flex";
+        document.getElementsByClassName('sidebar')[0].style.display = "flex";
+        document.getElementsByClassName('wave')[0].style.display = "flex";
+        document.getElementsByClassName('mobileMenu')[0].style.display = "none";
+        setQrMode(false);
+      }else{
+        document.getElementsByClassName('menuContainer')[0].style.display = "none";
+        document.getElementsByClassName('sidebar')[0].style.display = "none";
+        document.getElementsByClassName('wave')[0].style.display = "none";
+        document.getElementsByClassName('mobileMenu')[0].style.display = "flex";
+        setQrMode(true);
+      }
+    }
+
     return(
       <>
       <ToastContainer
@@ -198,7 +239,10 @@ const Menu = () => {
         <div className="pageContainer">
           <Sidebar/>
           <div className="menuContainer">
-            <h1>Bem vindo!</h1>
+            <div className="menuHeader">
+              <h1>Bem vindo!</h1>
+              <AiOutlineQrcode onClick={toggle}/>
+            </div>
             <h2 className="subtitle">Altere o cardápio da semana <div></div></h2>
             <div className="menuSheet">
               <div className="horizontalListing">
@@ -243,9 +287,9 @@ const Menu = () => {
                   )
                 })}
               </select>
-              <button onClick={qr}>Escanear Qr code</button>
+              <button onClick={qr}><BiQrScan/></button>
             </div>
-            <h2 onClick={()=>{auth.signOut().then(()=>{navigate("/");})}}>Sair</h2>
+            <h2 onClick={toggle}>Voltar</h2>
           </div>
         </div>
       </>

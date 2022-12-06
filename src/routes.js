@@ -28,7 +28,7 @@ export default function Router(){
 
         <Route path="/menu" element={<ProtectedRoute><Menu/></ProtectedRoute>}/>
         <Route path="/lanchonete" element={<ProtectedRoute><Lanchonete/></ProtectedRoute>}/>
-        <Route path="/avaliações" element={<ProtectedRoute><ShopReviews/></ProtectedRoute>}/>
+        <Route path="/avaliacoes" element={<ProtectedRoute><ShopReviews/></ProtectedRoute>}/>
       </Routes>
     </UserAuthContextProvider>
   );
