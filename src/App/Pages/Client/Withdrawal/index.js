@@ -61,11 +61,11 @@ const Withdrawal = () => {
       <>
       <div className="pageContainerMobile">
         <Navbar/>
-        <div className="generalContainerMobile">
+        <div className="generalContainerMobile-retirada">
           <div className="voucherCointainer">
             {vouchers.map((item)=>{
               return(<>
-                <div onClick={()=>{handleModal(item.qrcode);}}>
+                <div className="items-buy" onClick={()=>{handleModal(item.qrcode);}}>
                   <h2>Nome: {item.name}</h2>
                   <h2>Quantidade: {item.quantity}</h2>
                 </div>

@@ -50,7 +50,7 @@
 }
 .itemListing{
     overflow-y: auto;
-    max-height: 70%;
+    min-height: 53%;
     min-width: 100%;
     padding: 0 21px 0 21px;
     height: auto;
@@ -111,12 +111,11 @@
    
 }
 .checkoutContainer{
-    position: absolute;
     width: 100%;
     bottom: 0;
     justify-content: space-between;
     display:flex;
-    padding: 0 21px 30px 21px;
+    padding: 20px 21px 30px 21px;
     
 
     .cartCounter{
