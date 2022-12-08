@@ -131,11 +131,12 @@ const Home = () => {
           onClick={resetModal}>
         </div>
         <div className="loginModalContainer">
-          <div>
-            <input id="email" placeholder="email" type="text" onChange={(e)=>{setEmail(e.target.value)}} />
-            <input id="password" placeholder="senha" type="text" onChange={(e)=>{setPassword(e.target.value)}} />
+          <h1>LOGIN</h1>
+          <div className="input-modal">
+            <input id="email" placeholder="Email" type="text" onChange={(e)=>{setEmail(e.target.value)}} />
+            <input id="password" placeholder="Senha" type="text" onChange={(e)=>{setPassword(e.target.value)}} />
           </div>
-          <div>
+          <div className="button-modal">
             <button onClick={Login}>Login</button>
             <button onClick={Register}>Cadastrar</button>
           </div>

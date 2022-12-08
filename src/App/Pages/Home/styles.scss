@@ -12,7 +12,8 @@
     background-image: url("../../../assets/login/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(3px);
+    
+    
 }
 .login{
     height: 100%;
@@ -59,7 +60,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(5px);
+    background: rgba(76, 72, 67, 0.57);
     position: absolute;
     z-index: 3;
 
@@ -75,16 +76,38 @@
     margin: auto;
     flex-direction: column;
     height: fit-content;
-    width: 50%;
-    background-color: var(--white);
-    border-radius: 10px;
-    border: 2px solid var(--orange);
+    width: 40%;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 13px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
     justify-content: space-around;
+    padding: 21px;
 
-    input{
-        height: 50px;
-        border-radius: 10px;
+    h1 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 50px;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        text-align: center;
     }
+
+    .input-modal{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        input{
+            background: #FFFFFF;
+            border: 1px solid #989898;
+            border-radius: 10px;
+            height: 56px;
+            width: 485px;
+            margin-bottom: 10px;
+            padding-left: 15px;
+        }
+    }
+
+    
 
     div:first-of-type{
         display: flex;
@@ -95,48 +118,121 @@
     div:last-of-type{
         margin: 10px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 
-    input{
-        margin-bottom: 10px;
+    .button-modal {
+        
+        button{
+            width: 219px;
+            color: #FFFFFF;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 20px;
+            height: 46px;
+            background: linear-gradient(88.61deg, #07AB6B 1.19%, #0BF197 97.46%);
+            border-radius: 37px;
+            border: none;
+            cursor: pointer;
+        }
     }
+    
+}
 
-    button{
-        width: 100px;
-        height: 50px;
-        color: var(--white);
-        background-color: var(--orange);
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
+@media (max-width: 1400px) {
+    .login {
+
+        button {
+            width: 250px;
+            font-size: 30px;
+        }
     }
 }
+
+@media (max-width: 1200px) {
+    
+    .login {
+
+        button {
+            width: 250px;
+            font-size: 30px;
+        }
+    }
+    .loginModalContainer{
+        width: 50%;
+
+        .input-modal {
+            input{
+                height: 56px;
+                width: 350px;
+                border-radius: 10px;
+            }
+        }
+        .button-modal {
+            button{
+                width: 145px;
+                height: 50px;
+            }
+        }   
+        
+    }
+
+    
+}
+
+
 @media (max-width: 760px) {
     .loginModalContainer{
-        width: 100%;
+        width: 85%;
 
-        input{
-            height: 50px;
-            border-radius: 10px;
+        .input-modal {
+            input{
+                height: 56px;
+                width: 350px;
+                border-radius: 10px;
+            }
         }
-        button{
-            height: 50px;
-        }
+        .button-modal {
+            button{
+                width: 145px;
+                height: 50px;
+            }
+        }   
+        
     }
 }
 
 @media (max-width: 400px) {
+    .loginModalContainer{
+        width: 90%;
+
+        .input-modal {
+            input{
+                height: 56px;
+                width: 280px;
+                border-radius: 10px;
+            }
+        }
+        .button-modal {
+            button{
+                width: 120px;
+                height: 50px;
+            }
+        }   
+        
+    }
+    
     .login {
         
         img {
             height: 60%;
         }
 
+        
+
         button {
-            width: 260px;
+            width: 200px;
             height: 50px;
-            font-size: 30px;
+            font-size: 25px;
         }
     }
   }

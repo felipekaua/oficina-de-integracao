@@ -50,9 +50,10 @@ const Historic = () => {
       <Navbar/>
       <div className="generalContainerMobile">
         <div className="historic">
+          <h1>Histórico</h1>
           {purchases.map((item)=>{
             return(<>
-              <div>
+              <div className="items-historic">
                 <h2>Data: {item.date}</h2>
                 <h2>Comprado: {item.buy}</h2>
                 <h2>Preço total: R$ {item.price}</h2>

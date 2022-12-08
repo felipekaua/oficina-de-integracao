@@ -243,7 +243,7 @@ const Menu = () => {
               <h1>Bem vindo!</h1>
               <AiOutlineQrcode onClick={toggle}/>
             </div>
-            <h2 className="subtitle">Altere o cardápio da semana <div></div></h2>
+            <h2 className="subtitle">Altere o cardápio da semana</h2>
             <div className="menuSheet">
               <div className="horizontalListing">
                 <h3>Segunda-Feira</h3>

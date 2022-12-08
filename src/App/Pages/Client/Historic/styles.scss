@@ -1,11 +1,39 @@
 .historic{
     height: 100%;
     overflow: auto;
+    width: 100%;
 
-    div{
-        border-top: 1px solid var(--grey);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+        font-family: 'Ephesis', cursive;
+        font-size: 50px;
+        letter-spacing: 0.1em;
+        margin-bottom: 30px;
+        font-weight: 400;
+        text-align: center;
+       
+        margin-top: 40px;
+    }
+
+    .items-historic{
+        width: 90%;
+        border: 1px solid #A5A5A5;
         padding-top: 5px;
         padding-bottom: 5px;
-        margin-top: 10px;
+
+            h2 {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 15px;
+                font-weight: 400;
+                margin: 5px 0;
+                margin-left: 10px;
+
+            }
+
+        
     }
+
 }

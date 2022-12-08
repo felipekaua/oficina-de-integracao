@@ -63,6 +63,7 @@ const Withdrawal = () => {
         <Navbar/>
         <div className="generalContainerMobile-retirada">
           <div className="voucherCointainer">
+            <h1>Retirada</h1>
             {vouchers.map((item)=>{
               return(<>
                 <div className="items-buy" onClick={()=>{handleModal(item.qrcode);}}>
