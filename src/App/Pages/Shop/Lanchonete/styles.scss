@@ -187,10 +187,9 @@
     border-radius: 10px;
     background-color: var(--white);
     outline: solid 0.5px var(--grey);
-    height: 66%;
+    height: 68%;
     width: 35%;
     right: 20%; 
-    left: 0;
     top: 0;
     bottom: 0;
     margin: auto;
@@ -204,6 +203,7 @@
         justify-content: space-between;
         align-items: center;
         margin-bottom: 40px;
+        margin-top: 40px;
 
         h2 {
             font-family: 'Open Sans', sans-serif;
