@@ -1,7 +1,3 @@
-<p align="center"><img src="src/assets/frontCover.svg" alt="cover" height="280px"/> <img src="src/assets/frontCoverMobile.svg" alt="cover mobile" height="280px"></p>
-
-
-
 Este é um sistema proposto e desenvolvido durante as aulas da disciplina de Oficina de Integração do curso de Engenharia de Computação da Universidade Tecnológica Federal do Paraná do câmpus de Cornélio Procópio/PR.
 
 <br/>
